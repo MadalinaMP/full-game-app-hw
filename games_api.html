@@ -10,15 +10,21 @@
     <div id="loader" class="centering"></div>
     <div id="container" class="centering">
       <div id="generateMenu" class="divStyle centering">
-        <h1>Games List</h1>
-        <input type="button" value="Find Games!" id="buton" />
+        <h1>Add & Remove Games!</h1>
+        <p>You can add your own game to the list!</p>
+        <div id="inputsInfo">
+          <input id="title" class="inputs" placeholder="Insert Game Title">
+          <textarea id="description" class="inputs" placeholder="Talk about the game!"></textarea>
+        </div>
+        <input type="button" value="Add Game" class="buton" id="buton" />
       </div>
 
       <div id="game" class="divStyle">
-        <h1>We found for you:</h1>
-        <div id="generatedGame"></div>
+        <h1>Your current list:</h1>
+        <div id="generatedGame">
+        </div>
       </div>
     </div>
-    <script src="Script/games.js"></script>
+    <script src="Script/games_app.js"></script>
   </body>
 </html>

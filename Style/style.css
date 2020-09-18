@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Dubai";
+  color: white;
+}
+
+body {
+  background-color: rgb(110, 110, 110);
+  background-image: url("src/metal.png");
+}
+
+.centering {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#container {
+  width: 900px;
+  position: relative;
+  margin: auto;
+}
+
+.divStyle {
+  background-color: rgba(234, 255, 245, 0.596);
+  box-shadow: -1px -1px 15px 5px rgb(154, 255, 154);
+  border: 3px dashed lime;
+  padding: 20px;
+}
+
+#generateMenu {
+  position: relative;
+  margin: 20vh auto;
+  width: 600px;
+  height: 170px;
+}
+
+#game {
+  position: absolute;
+  top: 125px;
+  right: 0;
+  width: 450px;
+  margin-bottom: 210px;
+
+  display: none;
+}
+
+#generatedGame {
+  margin-top: 20px;
+  text-align: center;
+}
+
+h1 {
+  text-shadow: 0px 0px 10px lime;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  text-align: center;
+  font-size: 33px;
+  border-top: 3px dashed white;
+  border-bottom: 3px dashed white;
+  padding: 10px 0 10px 0;
+}
+
+#buton {
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0);
+  border: 3px dashed rgb(255, 255, 255);
+  padding: 10px 50px;
+  font-weight: bold;
+  position: absolute;
+  bottom: 20px;
+
+  transition: 0.5s ease;
+}
+
+#buton:hover {
+  cursor: pointer;
+  background-color: rgb(125, 245, 125);
+  box-shadow: -1px -1px 15px 5px rgb(154, 255, 154);
+}
+
+#loader {
+  display: none;
+
+  position: absolute;
+  margin: auto;
+  z-index: 1;
+
+  border: 10px solid rgb(126, 126, 126);
+  border-radius: 50%;
+  border-top: 10px solid rgb(57, 255, 57);
+  box-shadow: -1px -1px 15px 5px rgb(159, 255, 150);
+  width: 30px;
+  height: 30px;
+
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.titleStyle {
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px lime;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.descriptionStyle {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: justify;
+  line-height: 16px;
+}
+
+.imgStyle {
+  width: 400px;
+  margin: 30px 0px 10px 0px;
+}

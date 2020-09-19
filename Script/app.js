@@ -1,20 +1,13 @@
-//class Game
-
-function Game(game) {
-  this.title = game.title;
-  this.description = game.description;
-}
-const newGame = new Game();
-newGame.getGames();
-Game.prototype.getGames = function () {
+function getGames() {
   return fetch("https://games-world.herokuapp.com/games").then(function (
     response
   ) {
     return response.json();
   });
-};
+}
+
 const container = document.querySelector("#generatedGame");
-newGame.getGames().then(function (games) {
+getGames().then(function (games) {
   console.log(games);
 
   games.forEach(function (game) {
@@ -37,25 +30,25 @@ newGame.getGames().then(function (games) {
   });
 });
 
-Game.prototype.deleteGame = function (gameId) {
+function deleteGame(gameId) {
   return fetch(`http://localhost:3000/posts/${gameId}`, {
     method: "DELETE",
   }).then(function (response) {
     return response.json();
   });
-};
+}
 
-Game.prototype.createDeleteButton = function () {
+function createDeleteButton() {
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "Delete";
   deleteButton.classList.add("buton");
 
   return deleteButton;
-};
+}
 
 const addGameButton = document.querySelector("#buton");
 addGameButton.addEventListener("click", createGame);
-Game.prototype.createGame = function () {
+function createGame() {
   const game = getGameData();
   console.log(game);
 
@@ -66,9 +59,9 @@ Game.prototype.createGame = function () {
     .catch(function (err) {
       console.log(err);
     });
-};
+}
 
-Game.prototype.createGameDOM = function (game) {
+function createGameDOM(game) {
   const gameDOM = document.createElement("div");
 
   gameDOM.innerHTML = `
@@ -78,9 +71,9 @@ Game.prototype.createGameDOM = function (game) {
   gameDOM.classList.add("gameStyle");
 
   return gameDOM;
-};
+}
 
-Game.prototype.saveGameOnServer = function (game) {
+function saveGameOnServer(game) {
   const promise = fetch("https://games-world.herokuapp.com/games", {
     method: "POST",
     headers: {
@@ -92,9 +85,9 @@ Game.prototype.saveGameOnServer = function (game) {
   });
 
   return promise;
-};
+}
 
-Game.prototype.getGameData = function () {
+function getGameData() {
   const gameTitle = document.querySelector("#title").value;
   const gameDescription = document.querySelector("#description").value;
 
@@ -102,4 +95,9 @@ Game.prototype.getGameData = function () {
     title: gameTitle,
     description: gameDescription,
   };
-};
+}
+
+function Game() {
+  this.title = game.title;
+  this.description = game.description;
+}

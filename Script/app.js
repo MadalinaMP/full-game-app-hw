@@ -65,7 +65,7 @@ function createDeleteButton() {
 function deleteGame(gameId) {
   //we delete a game based on its ID. we need to return the fetch in order to be able to call this function somewhere else(?)
   //depends on which game we pick, the ID will vary
-  return fetch(`http://localhost:3000/posts/${gameId}`, {
+  return fetch(`https://games-world.herokuapp.com/games${gameId}`, {
     method: "DELETE",
   }).then(function (response) {
     return response.json(); //we get the response from the picked game and we also turn it into a JS object in order to operate with it

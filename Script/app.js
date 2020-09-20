@@ -1,3 +1,6 @@
+const container = document.querySelector("#generatedGame");
+const addGameButton = document.querySelector("#buton");
+
 function getGames() {
   return fetch("https://games-world.herokuapp.com/games").then(function (
     response
@@ -6,7 +9,6 @@ function getGames() {
   });
 }
 
-const container = document.querySelector("#generatedGame");
 getGames().then(function (games) {
   console.log(games);
 
@@ -30,6 +32,11 @@ getGames().then(function (games) {
   });
 });
 
+function Game(response) {
+  this.title = response.title;
+  this.description = response.description;
+}
+
 function deleteGame(gameId) {
   return fetch(`http://localhost:3000/posts/${gameId}`, {
     method: "DELETE",
@@ -46,7 +53,6 @@ function createDeleteButton() {
   return deleteButton;
 }
 
-const addGameButton = document.querySelector("#buton");
 addGameButton.addEventListener("click", createGame);
 function createGame() {
   const game = getGameData();
@@ -95,9 +101,4 @@ function getGameData() {
     title: gameTitle,
     description: gameDescription,
   };
-}
-
-function Game() {
-  this.title = game.title;
-  this.description = game.description;
 }

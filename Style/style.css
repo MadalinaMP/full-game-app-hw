@@ -135,6 +135,28 @@ h1 {
   }
 }
 
+.titleStyle {
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 0px 0px 5px lime;
+  text-decoration: underline;
+  margin-bottom: 15px;
+}
+
+.descriptionStyle {
+  font-size: 15px;
+  font-weight: bold;
+  text-align: justify;
+  line-height: 16px;
+}
+
+.eachGame {
+  margin-bottom: 15px;
+  border: 3px dashed white;
+  padding: 20px 0 20px 0;
+  margin: 50px 0 50px 0;
+}
+
 .gameStyle {
   font-size: 16px;
   font-weight: bold;
@@ -142,5 +164,5 @@ h1 {
   margin-bottom: 15px;
   border: 3px dashed white;
   padding: 20px 0 20px 0;
-  margin: 50px 0 50px 0
+  margin: 50px 0 50px 0;
 }

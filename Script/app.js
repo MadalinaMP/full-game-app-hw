@@ -68,7 +68,7 @@ function deleteGame(gameId) {
   return fetch(`https://games-world.herokuapp.com/games/${gameId}`, {
     method: "DELETE",
   }).then(function (response) {
-    return response.json(); //we get the response from the picked game and we also turn it into a JS object in order to operate with it
+    return response.text(); //this is the response from the server. we used .text() because we received a string
   });
 }
 
@@ -89,9 +89,9 @@ function saveGameOnServer(game) {
   const promise = fetch("https://games-world.herokuapp.com/games", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: JSON.stringify(game), //we need to stringify the object we made in order to fit it in the server
+    body: `title=${game.title}&description=${game.description}`,
   }).then(function (response) {
     return response.json(); //after we add it to the server we get the whole response (the game) and turn it into a JS object that can be added to the document (?)
   });

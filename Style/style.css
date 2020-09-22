@@ -86,9 +86,10 @@ h1 {
   background-color: rgba(255, 255, 255, 0);
   border: 3px dashed rgb(255, 255, 255);
   padding: 10px 50px;
+  margin-bottom: 20px;
   font-weight: bold;
   position: relative;
-  bottom: -13px;
+  bottom: -15px;
 
   transition: 0.5s ease;
 }
@@ -103,7 +104,6 @@ h1 {
   font-size: 16px;
   font-weight: bold;
   text-shadow: 0px 0px 5px lime;
-  margin-bottom: 15px;
   border: 3px dashed white;
   padding: 20px 0 20px 0;
   margin: 50px 0 50px 0;

@@ -1,4 +1,5 @@
 function getGames() {
+  displayLoader();
   return fetch("https://games-world.herokuapp.com/games").then(function (
     response
   ) {
@@ -7,26 +8,33 @@ function getGames() {
 }
 
 const container = document.querySelector("#generatedGame");
-getGames().then(function (games) {
-  console.log(games);
+function displayGames() {
+  getGames()
+    .then(function (games) {
+      console.log(games);
 
-  games.forEach(function (game) {
-    const gameDOM = createGameDOM(game);
-    const deleteButton = createDeleteButton();
-    deleteButton.addEventListener("click", function () {
-      deleteGame(game._id)
-        .then(function (response) {
-          // console.log(response);
-          container.removeChild(gameDOM);
-        })
-        .catch(function (err) {
-          // console.log(err);
+      games.forEach(function (game) {
+        const gameDOM = createGameDOM(game);
+        const deleteButton = createDeleteButton();
+        deleteButton.addEventListener("click", function () {
+          displayLoader();
+          deleteGame(game._id)
+            .then(function (response) {
+              console.log(response);
+              container.removeChild(gameDOM);
+            })
+            .catch(function (err) {
+              console.log(err);
+            })
+            .finally(hideLoader);
         });
-    });
-    gameDOM.appendChild(deleteButton);
-    container.appendChild(gameDOM);
-  });
-});
+        gameDOM.appendChild(deleteButton);
+        container.appendChild(gameDOM);
+      });
+    })
+    .finally(hideLoader);
+}
+displayGames();
 
 function createGameDOM(game) {
   const gameDOM = document.createElement("div");
@@ -84,12 +92,24 @@ const addGameButton = document.querySelector("#buton");
 addGameButton.addEventListener("click", createGame);
 function createGame() {
   const game = getGameData();
-  // console.log(game);
+  console.log(game);
   saveGameOnServer(game)
     .then(function (response) {
-      // console.log(response);
+      console.log(response);
+      container.innerHTML = "";
+      displayGames();
     })
     .catch(function (err) {
-      // console.log(err);
+      console.log(err);
     });
+}
+
+function displayLoader() {
+  const myLoader = document.querySelector("#loader");
+  myLoader.style.display = "block";
+}
+
+function hideLoader() {
+  const myLoader = document.querySelector("#loader");
+  myLoader.style.display = "none";
 }

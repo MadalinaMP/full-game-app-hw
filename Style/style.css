@@ -100,6 +100,42 @@ h1 {
   box-shadow: -1px -1px 15px 5px rgb(154, 255, 154);
 }
 
+#loader {
+  display: none;
+
+  position: absolute;
+  margin: auto;
+  z-index: 1;
+
+  border: 10px solid rgb(126, 126, 126);
+  border-radius: 50%;
+  border-top: 10px solid rgb(57, 255, 57);
+  box-shadow: -1px -1px 15px 5px rgb(159, 255, 150);
+  width: 30px;
+  height: 30px;
+
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .gameStyle {
   font-size: 16px;
   font-weight: bold;

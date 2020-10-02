@@ -28,7 +28,7 @@ function displayGames() {
       console.log(games);
 
       games.forEach(function (game) {
-        const gameDOM = new Game().createGameDOM();
+        const gameDOM = new Game(game.title, game.description).createGameDOM();
         const deleteButton = createDeleteButton();
         deleteButton.addEventListener("click", function () {
           displayLoader();
